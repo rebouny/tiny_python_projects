@@ -28,8 +28,7 @@ def get_args():
                         help='The vowel to substitute',
                         metavar='vowel',
                         type=str,
-                        choices=['a', 'e', 'i', 'o', 'u', 'A',
-                                 'E', 'I', 'O', 'U'],
+                        choices=list('aeiouAEIOU'),
                         default='a')
 
     args = parser.parse_args()
