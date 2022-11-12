@@ -19,7 +19,8 @@ def get_args():
     parser.add_argument('letter',
                         metavar='letter',
                         nargs='+',
-                        help='Letter(s)')
+                        help='Letter(s)',
+                        type=str)
 
     parser.add_argument('-f',
                         '--file',
