@@ -13,6 +13,31 @@ import argparse
 import random
 import os
 import io
+from typing import Final
+
+CHAR_ENCODING: Final = {
+    'A': '4',
+    'B': '|3',
+    'C': '(',
+    'D': '|)',
+    'E': '3',
+    'F': '|=',
+    'G': '(-',
+    'H': '|-|',
+    'I': '1',
+    'J': '_|',
+    'K': '|<',
+    'L': '|_',
+    'M': '|\\/|',
+    'N': '|\\|',
+    'P': '|`',
+    'Q': '',
+    'R': '',
+    'S': '5',
+    'T': '+',
+    'V': '\\/',
+    'W': '\\/\\/'
+}
 
 
 # --------------------------------------------------
@@ -69,6 +94,22 @@ def test_choose():
     assert choose('b') == 'b'
     assert choose('c') == 'C'
     assert choose('d') == 'd'
+    random.setstate(state)
+
+
+def encode_chars(char: str):
+    """Leet encoder"""
+    return CHAR_ENCODING.get(char.upper(), char) \
+        if random.choice([False, True]) else char
+
+
+def test_encode():
+    """Test our leet encoder"""
+    text = 'The quick brown fox jumps over the lazy dog.'
+    state = random.getstate()
+    random.seed(1)
+    assert "".join(map(encode_chars, text.rstrip().lower())) \
+        == 'th3 u1(k |3ro\\/\\/n |=ox jump5 ove t|-|e |_4zy dog.'
     random.setstate(state)
 
 
