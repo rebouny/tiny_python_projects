@@ -11,9 +11,9 @@ import string
 from typing import Final
 
 
-CONSONANTS: Final = "".join([
-    x for x in string.ascii_lowercase if x not in 'aeiou'
-    ])
+CONSONANTS: Final = "".join(
+    filter(lambda x: x not in 'aeiou', string.ascii_lowercase)
+    )
 
 CLUSTER: Final = [
     'bl', 'br', 'ch', 'cl', 'cr', 'dr', 'fl', 'fr', 'gl', 'gr',
