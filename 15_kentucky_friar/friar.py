@@ -40,9 +40,7 @@ def main():
 
     args = get_args()
     for text in args.text:
-        print(''.join(
-            map(fry,
-                filter(lambda x: x != '', re.split(r'(\W+)', text.rstrip())))))
+        print(''.join(map(fry, re.split(r'(\W+)', text.rstrip()))))
 
 
 # --------------------------------------------------
