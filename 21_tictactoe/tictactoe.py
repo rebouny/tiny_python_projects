@@ -57,7 +57,7 @@ def get_args():
 
 
 # --------------------------------------------------
-def main():
+def main() -> None:
     """Make a jazz noise here"""
 
     args = get_args()
@@ -86,7 +86,7 @@ def find_winner(board: List[str]):
     return None
 
 
-def format_board(board: List[str]):
+def format_board(board: List[str]) -> str:
     """Returns string representation of the board"""
 
     cells = [str(i) if c == '.' else board[i-1]
